@@ -36,7 +36,7 @@ export function BlogPostSlider() {
         <h2 className="text-4xl font-bold mb-4">Blogs & Articles</h2>
         <p className="text-gray-600">Most liked blogs & articles</p>
       </motion.div>
-      <Carousel opts={options} setApi={setApi} className="w-full">
+      <Carousel setApi={setApi} className="w-full">
         <CarouselContent className="-ml-2 md:-ml-4">
           {blogPosts.map((post) => (
             <CarouselItem
