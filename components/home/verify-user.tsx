@@ -23,6 +23,7 @@ const FIRST_DATA = [
 const FirstComponent = () => {
   return (
     <div className="p-10 rounded-md bg-[#F9F8EC] flex flex-col justify-center items-center">
+      <h2 className="text-xl text-olive font-semibold mb-3 text-center">The only poultry world portal that verifies users</h2>
       {FIRST_DATA?.map((item, index) => {
         return (
           <motion.div

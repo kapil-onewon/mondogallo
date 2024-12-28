@@ -5,6 +5,7 @@ import { FeaturedProducts } from "@/components/home/featured-products";
 import { AboutSection } from "@/components/home/about-section";
 import PoultryRevolutions from "@/components/home/poultry-revolutions";
 import VerifyUser from "@/components/home/verify-user";
+import { BlogPostSlider } from "@/components/home/blog-post-slider";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <PoultryRevolutions />
       <AboutSection />
       <VerifyUser />
+      <BlogPostSlider />
     </main>
   );
 }
