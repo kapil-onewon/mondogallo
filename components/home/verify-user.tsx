@@ -95,7 +95,7 @@ const ThirdComponent = () => {
         </h2>
         <p className="text-[#7B8030] mb-4">We will soon be on the stores too</p>
         <Image
-          src={require("../../assets/images/google + appstore.svg")}
+          src={require("../../assets/images/google_appstore.svg")}
           alt=""
         />
       </div>

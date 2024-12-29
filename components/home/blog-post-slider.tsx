@@ -14,9 +14,11 @@ import { blogPosts } from "../../data/blog-posts";
 import { BlogCard } from "../ui/blog-card";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from 'next/navigation'
 
 export function BlogPostSlider() {
   const [api, setApi] = React.useState<any>();
+  const router = useRouter()
 
   const options = {
     align: "start",
@@ -50,7 +52,7 @@ export function BlogPostSlider() {
           ))}
         </CarouselContent>
         <div className="flex items-center justify-between mt-4">
-          <Button className="text-white bg-red hover:bg-olive ">
+          <Button className="text-white bg-red hover:bg-olive " onClick={() => router.push('/article')}>
             View All &nbsp; <ArrowRight width={18} height={18} />
           </Button>
           <div className="flex items-center gap-2">

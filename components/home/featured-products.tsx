@@ -13,13 +13,13 @@ const featuredProducts = [
   {
     id: 2,
     name: "Organic Feed",
-    image: "https://images.unsplash.com/photo-1585668874431-acc10b2c836a",
+    image: "/hen-feeding.jpg",
     description: "Premium quality organic feed"
   },
   {
     id: 3,
     name: "Farm Equipment",
-    image: "https://images.unsplash.com/photo-1595925889916-2a1d773a0613",
+    image: "/hen-transport.jpg",
     description: "Modern farming equipment"
   }
 ];

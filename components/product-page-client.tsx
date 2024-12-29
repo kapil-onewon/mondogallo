@@ -20,7 +20,7 @@ export default function ProductPageClient({
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 mt-16">
       <div className="grid md:grid-cols-2 gap-12">
         <div className="h-full">
           <DishCarousel images={product.images} name={product.name} />

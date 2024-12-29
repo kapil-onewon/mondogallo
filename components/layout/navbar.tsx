@@ -1,19 +1,48 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
 import { Egg, ChevronDown } from "lucide-react";
 import { NavDropdown } from "./nav-dropdown";
 import Image from "next/image";
 import mondoGalloLogo from "../../assets/images/logo-green-text-large.svg";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const pathname = usePathname();
+
+  console.log("pathname :", pathname);
+
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="container mx-auto px-4">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+      }`}
+    >
+      <div
+        className={`container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+          isScrolled ? "py-2" : "py-2"
+        }`}
+      >
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             {/* <Egg className="h-8 w-8 text-primary" />
@@ -22,8 +51,8 @@ export function Navbar() {
               priority
               src={mondoGalloLogo}
               alt=""
-              height={100}
-              width={100}
+              height={150}
+              width={150}
             />
           </Link>
 
@@ -32,7 +61,9 @@ export function Navbar() {
               <div key={category.id} className="relative">
                 {category.id === "professionals" ? (
                   <div
-                    className="flex items-center space-x-1 text-gray-600 hover:text-primary cursor-pointer transition-colors"
+                    className={`flex items-center space-x-1 ${
+                      isScrolled || !isHome ? "text-gray-600" : "text-white"
+                    } hover:text-primary cursor-pointer transition-colors`}
                     onMouseEnter={() => setIsDropdownOpen(true)}
                     onMouseLeave={() => setIsDropdownOpen(false)}
                   >
@@ -43,7 +74,9 @@ export function Navbar() {
                 ) : (
                   <Link
                     href={`/categories/${category.id}`}
-                    className="text-gray-600 hover:text-primary transition-colors"
+                    className={`${
+                      isScrolled || !isHome ? "text-gray-600" : "text-white"
+                    } hover:text-primary transition-colors`}
                   >
                     {category.title}
                   </Link>
