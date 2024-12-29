@@ -6,7 +6,7 @@ import { Heart, Share2 } from "lucide-react";
 interface BlogCardProps {
   post: BlogPostTwo;
   variant?: "featured" | "normal" | "small";
-  compact: boolean;
+  compact?: boolean;
 }
 
 export function BlogCard({ post, variant = "normal" }: BlogCardProps) {
